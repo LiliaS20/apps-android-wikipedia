@@ -14,7 +14,8 @@ val imageView = listOf(
 
 val primaryText = listOf(
     AppTextView::class.java,
-    R.id.primaryTextView
+    R.id.primaryTextView,
+    R.string.onboarding_welcome_title_v2
 )
 
 val secondaryText = listOf(
