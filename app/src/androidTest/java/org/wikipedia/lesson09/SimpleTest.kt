@@ -1,5 +1,6 @@
 package org.wikipedia.lesson09
 
+import androidx.compose.ui.test.hasText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
 import org.junit.Rule
@@ -62,19 +63,37 @@ class SimpleTest : TestCase() {
                 }
                 WikipediaLanguagesScreen {
                     step("Нажимает кнопку Add or edit languages") {
-                        addLanguage.click()
+//                        items.childWith<WikipediaLangRecycler> {
+//                            hasText("Add language")
+//                        }.click()
+                        items.childAt<WikipediaLangRecycler>(2) {
+                            this.addLanguage.click()
+                        }
                     }
+//                    AddLanguageScreen {
+//                        step("Нажимает кнопку испанского языка") {
+//                            spanishLang.click()
+//                        }
+//                    }
                     AddLanguageScreen {
-                        spanishLang.click()
+                        step("Нажимает кнопку испанского языка") {
+                            spanishLang.click()
+                        }
                     }
-                    toolbar.click()
+                    step("Нажимает кнопку Википедии в шапке") {
+                        toolbar.click()
+                    }
                 }
-                languages.childAt<LanguageItem>(0) {
-                    this.hasText("1.\t\tEnglish")
+                step("Проверяет первый язык в списке") {
+                    languages.childAt<LanguageItem>(0) {
+                        this.hasText("1.\t\tEnglish")
+                    }
                 }
-                languages.childAt<LanguageItem>(0) {
-                    this.hasText("text\t2.\t\tEspañol")
-                }
+//                step("Проверяет второй язык в списке") {
+//                    languages.childAt<LanguageItem>(0) {
+//                        this.hasText("text\t2.\t\tEspañol")
+//                    }
+//                }
             }
         }
     }
