@@ -1,4 +1,4 @@
-package org.wikipedia.lesson08.homework
+package org.wikipedia.lesson08.homework.ExploreScreen
 
 import android.view.View
 import androidx.appcompat.widget.AppCompatImageView
@@ -10,18 +10,16 @@ import org.hamcrest.Matcher
 import org.wikipedia.R
 
 class SearchItem(matcher: Matcher<View>) : KRecyclerItem<SearchItem>(matcher) {
-
-    val iconLoop = KImageView(matcher) {
+    val searchIcon = KImageView(matcher) {
         withIndex(0) {
             isInstanceOf(AppCompatImageView::class.java)
         }
     }
-
-    val input = KTextView(matcher) {
+    val text = KTextView(matcher) {
+        withText("Search Wikipedia")
         isInstanceOf(MaterialTextView::class.java)
     }
-
-    val iconMicrophone = KImageView(matcher) {
+    val voiceIcon = KImageView(matcher) {
         withId(R.id.voice_search_button)
     }
 }

@@ -1,4 +1,4 @@
-package org.wikipedia.lesson09
+package org.wikipedia.lesson08
 
 import android.view.View
 import io.github.kakaocup.kakao.image.KImageView
@@ -10,23 +10,17 @@ import org.hamcrest.Matcher
 import org.wikipedia.R
 
 class PagerItem(matcher: Matcher<View>) : KViewPagerItem<PagerItem>(matcher) {
-
     val image = KImageView(matcher) {
         withId(R.id.imageViewCentered)
     }
-
     val title = KTextView(matcher) {
         withId(R.id.primaryTextView)
-    }
-
-    val secondaryText = KTextView(matcher) {
-        withId(R.id.secondaryTextView)
     }
 
     val languages = KRecyclerView(
         parent = matcher,
         builder = {
-            withId(R.id.languagesList)
+            withId(R.id.languageList)
         },
         itemTypeBuilder = {
             itemType(::LanguageItem)
@@ -36,5 +30,4 @@ class PagerItem(matcher: Matcher<View>) : KViewPagerItem<PagerItem>(matcher) {
     val addLanguageButton = KButton(matcher) {
         withId(R.id.addLanguageButton)
     }
-
 }

@@ -1,4 +1,4 @@
-package org.wikipedia.lesson09
+package org.wikipedia.lesson08
 
 import android.view.View
 import io.github.kakaocup.kakao.recycler.KRecyclerItem
@@ -9,8 +9,7 @@ import org.wikipedia.R
 
 class LanguageItem(matcher: Matcher<View>) : KRecyclerItem<LanguageItem>(matcher),
     TextViewAssertions {
-
-    val textView = KTextView {
+    val languageText = KTextView(matcher) {
         withId(R.id.option_label)
     }
 }
