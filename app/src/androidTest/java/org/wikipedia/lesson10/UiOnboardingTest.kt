@@ -1,67 +1,68 @@
-//package lesson10.homework
-//
-//import androidx.test.ext.junit.rules.ActivityScenarioRule
-//import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
-//import org.junit.Rule
-//import org.junit.Test
-//import org.wikipedia.main.MainActivity
-//
-//class UiOnboardingTest: TestCase() {
-//
-//    @get:Rule
-//    val testRule = ActivityScenarioRule(MainActivity::class.java)
-//
-//    @Test
-//    fun checkSkipButton(){
-//        run{
-//            OnboardingUiScreen.skip.isDisplayed()
-//        }
-//    }
-//
-//    @Test
-//    fun checkTitleTextSecondSlide(){
-//        run {
-//            OnboardingUiScreen {
-//                screenSwipe.swipeLeft()
-//                titleText.containsText("New ways to explore")
-//            }
-//        }
-//    }
-//
-//    @Test
-//    fun checkSubtitleTextSecondSlide(){
-//        run {
-//            OnboardingUiScreen {
-//                screenSwipe.swipeLeft()
-//                subtitleText.containsText("Dive down the Wikipedia rabbit hole with a constantly updating Explore feed.")
-//            }
-//        }
-//    }
-//
-//    @Test
-//    fun checkTitleTextThirdSlide(){
-//        run {
-//            OnboardingUiScreen {
-//                screenSwipe{
-//                    swipeLeft()
-//                    swipeLeft()
-//                }
-//                titleText.containsText("Reading lists with sync")
-//            }
-//        }
-//    }
-//
-//    @Test
-//    fun checkSubtitleTextThirdSlide(){
-//        run {
-//            OnboardingUiScreen {
-//                screenSwipe{
-//                    swipeLeft()
-//                    swipeLeft()
-//                }
-//                subtitleText.containsText("Login to your Wikipedia account to sync your reading lists. Join Wikipedia")
-//            }
-//        }
-//    }
-//
-//}
+package lesson10.homework
+
+import androidx.test.ext.junit.rules.ActivityScenarioRule
+import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
+import org.junit.Rule
+import org.junit.Test
+import org.wikipedia.lesson08.OnboardingScreen
+import org.wikipedia.main.MainActivity
+
+class UiOnboardingTest: TestCase() {
+
+    @get:Rule
+    val testRule = ActivityScenarioRule(MainActivity::class.java)
+
+    @Test
+    fun checkSkipButton() {
+        run("Проверяет, что кнопка Skip отображается") {
+            OnboardingUiScreen.skipButton.isDisplayed()
+            OnboardingScreen.skipButton.isDisplayed()
+        }
+    }
+
+    @Test
+    fun checkContinueButton() {
+        run("Проверяет нажатие на кнопку Continue") {
+            OnboardingUiScreen {
+                continueButton.click()
+                title.hasText("New ways to explore")
+            }
+        }
+    }
+
+    @Test
+    fun checkSwipeSlide() {
+        run("Проверяет переключение слайдов свайпом") {
+            OnboardingUiScreen {
+                screenSwipe.swipeLeft()
+                title.hasText("New ways to explore")
+            }
+        }
+    }
+
+    @Test
+    fun checkTwoSwipeSlide() {
+        run("Проверяет переключение слайдов разными способами") {
+            OnboardingUiScreen {
+                screenSwipe.swipeLeft()
+                continueButton.click()
+                title.hasText("Reading lists with sync")
+            }
+        }
+    }
+
+    @Test
+    fun checkSwipeSlideEnd() {
+        run("Проверяет переключение слайдов до конца") {
+            OnboardingUiScreen {
+                screenSwipe {
+                    swipeLeft()
+                    swipeLeft()
+                    swipeLeft()
+                }
+                title.hasText("Data & Privacy")
+            }
+        }
+    }
+
+}
