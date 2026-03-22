@@ -8,7 +8,6 @@ import io.github.kakaocup.kakao.web.KWebView
 import org.junit.Rule
 import org.junit.Test
 import org.wikipedia.R
-import org.wikipedia.activitytab.OnboardingScreen
 import org.wikipedia.feed.featured.FeaturedArticleCardView
 import org.wikipedia.lesson08.ExploreScreen
 import org.wikipedia.lesson08.OnboardingScreen
@@ -48,12 +47,6 @@ class WebViewTests : TestCase() {
                         hasText("References")
                     }
                 }
-//                webView {
-//                    withElement(Locator.XPATH, "//*[@class=\"pcs-collapse-table-container\"]") {
-//                        scroll()
-//                        click()
-//                    }
-//                }
                 webView {
                     withElement(Locator.XPATH, "(//*[@class=\"mw-reflink-text\"])[28]") {
                         scroll()
