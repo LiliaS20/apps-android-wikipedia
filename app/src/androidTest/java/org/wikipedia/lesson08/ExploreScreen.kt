@@ -4,6 +4,7 @@ import com.kaspersky.kaspresso.screens.KScreen
 import io.github.kakaocup.kakao.image.KImageView
 import io.github.kakaocup.kakao.recycler.KRecyclerView
 import io.github.kakaocup.kakao.text.KButton
+import io.github.kakaocup.kakao.text.KTextView
 import org.wikipedia.R
 import org.wikipedia.feed.view.FeedView
 import org.wikipedia.lesson08.homework.ExploreScreen.CustomizeItem
@@ -23,6 +24,10 @@ object ExploreScreen : KScreen<ExploreScreen>() {
 
     val retryButton = KButton {
         withId(R.id.view_card_offline_button_retry)
+    }
+
+    val textNotConnect = KTextView {
+        withText("Content cannot be loaded when offline.")
     }
 
     val items = KRecyclerView(

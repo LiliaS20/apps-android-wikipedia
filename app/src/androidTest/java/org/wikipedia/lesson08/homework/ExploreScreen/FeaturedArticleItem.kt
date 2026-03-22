@@ -4,6 +4,7 @@ import android.view.View
 import io.github.kakaocup.kakao.image.KImageView
 import io.github.kakaocup.kakao.recycler.KRecyclerItem
 import io.github.kakaocup.kakao.recycler.KRecyclerView
+import io.github.kakaocup.kakao.text.KButton
 import io.github.kakaocup.kakao.text.KTextView
 import org.hamcrest.Matcher
 import org.wikipedia.R
@@ -26,5 +27,9 @@ class FeaturedArticleItem(matcher: Matcher<View>) : KRecyclerItem<FeaturedArticl
     )
     val moreLink = KTextView(matcher) {
         withId(R.id.footerActionButton)
+    }
+
+    val articleTitle = KTextView(matcher) {
+        withId(R.id.articleTitle)
     }
 }
