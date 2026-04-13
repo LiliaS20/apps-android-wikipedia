@@ -18,6 +18,7 @@ class PagerItem(matcher: Matcher<View>) : KViewPagerItem<PagerItem>(matcher) {
             withId(R.id.imageViewCentered)
         }.name(withParent("Картинка"))
     }
+
     val title by lazy {
         KTextView(matcher) {
             withId(R.id.primaryTextView)

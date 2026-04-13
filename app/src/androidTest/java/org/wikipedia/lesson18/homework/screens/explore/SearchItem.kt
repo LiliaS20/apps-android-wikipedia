@@ -8,18 +8,29 @@ import io.github.kakaocup.kakao.recycler.KRecyclerItem
 import io.github.kakaocup.kakao.text.KTextView
 import org.hamcrest.Matcher
 import org.wikipedia.R
+import org.wikipedia.lesson18.homework.ext.name
+import org.wikipedia.lesson18.homework.ext.withParent
 
 class SearchItem(matcher: Matcher<View>) : KRecyclerItem<SearchItem>(matcher) {
-    val searchIcon = KImageView(matcher) {
-        withIndex(0) {
-            isInstanceOf(AppCompatImageView::class.java)
-        }
+
+    val searchIcon by lazy {
+        KImageView(matcher) {
+            withIndex(0) {
+                isInstanceOf(AppCompatImageView::class.java)
+            }
+        }.name(withParent("Иконка поиска"))
     }
-    val text = KTextView(matcher) {
-        withText("Search Wikipedia")
-        isInstanceOf(MaterialTextView::class.java)
+
+    val text by lazy {
+        KTextView(matcher) {
+            withText("Search Wikipedia")
+            isInstanceOf(MaterialTextView::class.java)
+        }.name(withParent("Строка поиска"))
     }
-    val voiceIcon = KImageView(matcher) {
-        withId(R.id.voice_search_button)
+
+    val voiceIcon by lazy {
+        KImageView(matcher) {
+            withId(R.id.voice_search_button)
+        }.name(withParent("Кнопка voice"))
     }
 }

@@ -7,25 +7,45 @@ import io.github.kakaocup.kakao.text.KTextView
 import io.github.kakaocup.kakao.text.TextViewAssertions
 import org.hamcrest.Matcher
 import org.wikipedia.R
+import org.wikipedia.lesson18.homework.ext.name
+import org.wikipedia.lesson18.homework.ext.withParent
 
 class TopReadRecycler(matcher: Matcher<View>) : KRecyclerItem<TopReadRecycler>(matcher),
     TextViewAssertions {
-    val number = KTextView(matcher) {
-        withId(R.id.numberView)
+
+    val number by lazy {
+        KTextView(matcher) {
+            withId(R.id.numberView)
+        }.name(withParent("Номер"))
     }
-    val title = KTextView(matcher) {
-        withId(R.id.view_list_card_item_title)
+
+    val title by lazy {
+        KTextView(matcher) {
+            withId(R.id.view_list_card_item_title)
+        }.name(withParent("Заголовок"))
     }
-    val subtitle = KTextView(matcher) {
-        withId(R.id.view_list_card_item_subtitle)
+
+    val subtitle by lazy {
+        KTextView(matcher) {
+            withId(R.id.view_list_card_item_subtitle)
+        }.name(withParent("Подзаголовок"))
     }
-    val graph = KView(matcher) {
-        withId(R.id.view_list_card_item_graph)
+
+    val graph by lazy {
+        KView(matcher) {
+            withId(R.id.view_list_card_item_graph)
+        }.name(withParent("График"))
     }
-    val pageViews = KTextView(matcher) {
-        withId(R.id.view_list_card_item_pageviews)
+
+    val pageViews by lazy {
+        KTextView(matcher) {
+            withId(R.id.view_list_card_item_pageviews)
+        }.name(withParent("Страницы"))
     }
-    val image = KTextView(matcher) {
-        withId(R.id.view_list_card_item_image)
+
+    val image by lazy {
+        KTextView(matcher) {
+            withId(R.id.view_list_card_item_image)
+        }.name(withParent("Картинки"))
     }
 }

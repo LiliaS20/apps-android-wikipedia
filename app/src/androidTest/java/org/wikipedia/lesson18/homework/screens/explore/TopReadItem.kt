@@ -8,22 +8,34 @@ import io.github.kakaocup.kakao.text.KTextView
 import org.hamcrest.Matcher
 import org.wikipedia.R
 import org.wikipedia.lesson08.homework.ExploreScreen.TopReadRecycler
+import org.wikipedia.lesson18.homework.ext.name
+import org.wikipedia.lesson18.homework.ext.withParent
 
 class TopReadItem(matcher: Matcher<View>) : KRecyclerItem<TopReadItem>(matcher) {
-    val menuHeader = KTextView(matcher) {
-        withId(R.id.view_card_header_title)
+
+    val menuHeader by lazy {
+        KTextView(matcher) {
+            withId(R.id.view_card_header_title)
+        }.name(withParent("Заголовок"))
     }
-    val headerIcon = KImageView(matcher) {
-        withId(R.id.view_list_card_header_menu)
+
+    val headerIcon by lazy {
+        KImageView(matcher) {
+            withId(R.id.view_list_card_header_menu)
+        }.name(withParent("Картинка"))
     }
+
     val items = KRecyclerView (
         parent = matcher,
         builder = { withId(R.id.view_list_card_list) },
         itemTypeBuilder = {
             itemType(::TopReadRecycler)
         }
-    )
-    val moreLink = KTextView(matcher) {
-        withId(R.id.footerActionButton)
+    ).name(withParent("Список статей"))
+
+    val moreLink by lazy {
+        KTextView(matcher) {
+            withId(R.id.footerActionButton)
+        }.name(withParent("Кнопка More link"))
     }
 }
