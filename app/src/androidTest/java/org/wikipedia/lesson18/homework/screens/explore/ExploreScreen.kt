@@ -1,6 +1,5 @@
 package org.wikipedia.lesson18.homework.screens.explore
 
-import com.kaspersky.kaspresso.screens.KScreen
 import io.github.kakaocup.kakao.image.KImageView
 import io.github.kakaocup.kakao.recycler.KRecyclerView
 import io.github.kakaocup.kakao.text.KButton
@@ -13,7 +12,11 @@ import org.wikipedia.lesson08.homework.ExploreScreen.FeaturedArticleItem
 import org.wikipedia.lesson08.homework.ExploreScreen.InTheNewsItem
 import org.wikipedia.lesson08.homework.ExploreScreen.SearchItem
 import org.wikipedia.lesson08.homework.ExploreScreen.TopReadItem
+import org.wikipedia.lesson18.homework.ext.invokeByIndex
+import org.wikipedia.lesson18.homework.ext.invokeWithText
 import org.wikipedia.lesson18.homework.ext.name
+import org.wikipedia.lesson18.homework.screens.onboarding.OnboardingScreen.pager
+import org.wikipedia.lesson18.homework.screens.onboarding.PagerItem
 import org.wikipedia.lesson18.homework.utils.NamedScreen
 
 object ExploreScreen : NamedScreen<ExploreScreen>() {
@@ -47,4 +50,12 @@ object ExploreScreen : NamedScreen<ExploreScreen>() {
             itemType(::FeaturedArticleItem)
         }
     ).name(withParent("Список блоков на странице"))
+
+    fun page(index: Int, fnc: PagerItem.() -> Unit) {
+        pager.invokeByIndex(index, fnc)
+    }
+
+    fun customizeBlock(fnc: CustomizeItem.() -> Unit) {
+        items.invokeWithText("Customize", fnc)
+    }
 }
