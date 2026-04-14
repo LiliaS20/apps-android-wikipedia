@@ -6,12 +6,6 @@ import io.github.kakaocup.kakao.text.KButton
 import io.github.kakaocup.kakao.text.KTextView
 import org.wikipedia.R
 import org.wikipedia.feed.view.FeedView
-import org.wikipedia.lesson08.homework.ExploreScreen.CustomizeItem
-import org.wikipedia.lesson08.homework.ExploreScreen.DayItem
-import org.wikipedia.lesson08.homework.ExploreScreen.FeaturedArticleItem
-import org.wikipedia.lesson08.homework.ExploreScreen.InTheNewsItem
-import org.wikipedia.lesson08.homework.ExploreScreen.SearchItem
-import org.wikipedia.lesson08.homework.ExploreScreen.TopReadItem
 import org.wikipedia.lesson18.homework.ext.invokeByIndex
 import org.wikipedia.lesson18.homework.ext.invokeWithText
 import org.wikipedia.lesson18.homework.ext.name
@@ -48,14 +42,16 @@ object ExploreScreen : NamedScreen<ExploreScreen>() {
             itemType(::TopReadItem)
             itemType(::InTheNewsItem)
             itemType(::FeaturedArticleItem)
+            itemType(::NavigationBar)
         }
     ).name(withParent("Список блоков на странице"))
 
-    fun page(index: Int, fnc: PagerItem.() -> Unit) {
-        pager.invokeByIndex(index, fnc)
-    }
 
     fun customizeBlock(fnc: CustomizeItem.() -> Unit) {
         items.invokeWithText("Customize", fnc)
+    }
+
+    fun topReadBlock(fnc: TopReadItem.() -> Unit) {
+        items.invokeWithText("TopReadItem", fnc)
     }
 }

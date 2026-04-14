@@ -1,4 +1,4 @@
-package org.wikipedia.lesson19.homework.stepsUtils
+package org.wikipedia.lesson19.homework.utils
 
 abstract class StepsDsl<T : StepsDsl<T>> {
 

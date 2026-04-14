@@ -1,11 +1,9 @@
-package org.wikipedia.lesson19.homework.steps
+package org.wikipedia.lesson19.homework.utils
 
 import io.github.kakaocup.kakao.common.actions.BaseActions
 import io.github.kakaocup.kakao.common.assertions.BaseAssertions
 import io.github.kakaocup.kakao.text.TextViewAssertions
 import org.wikipedia.lesson18.homework.ext.getName
-import org.wikipedia.lesson19.homework.stepsUtils.StepDefinitions
-import org.wikipedia.lesson19.homework.stepsUtils.StepsDsl
 
 class Verify(private val steps: StepDefinitions) : StepsDsl<Verify>() {
 

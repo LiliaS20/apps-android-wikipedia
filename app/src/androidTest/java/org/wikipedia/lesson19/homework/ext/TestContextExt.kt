@@ -1,10 +1,10 @@
 package org.wikipedia.lesson19.homework.ext
 
 import com.kaspersky.kaspresso.testcases.core.testcontext.TestContext
-import org.wikipedia.lesson19.homework.steps.Actions
-import org.wikipedia.lesson19.homework.steps.Verify
-import org.wikipedia.lesson19.homework.stepsUtils.StepDefinitions
-import org.wikipedia.lesson19.homework.stepsUtils.StepsDsl
+import org.wikipedia.lesson19.homework.utils.Actions
+import org.wikipedia.lesson19.homework.utils.Verify
+import org.wikipedia.lesson19.homework.utils.StepDefinitions
+import org.wikipedia.lesson19.homework.utils.StepsDsl
 
 private val steps = mutableMapOf<String, StepsDsl<*>>()
 

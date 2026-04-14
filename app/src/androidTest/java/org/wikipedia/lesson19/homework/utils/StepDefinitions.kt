@@ -1,4 +1,4 @@
-package org.wikipedia.lesson19.homework.stepsUtils
+package org.wikipedia.lesson19.homework.utils
 
 import com.kaspersky.kaspresso.testcases.core.testcontext.TestContext
 import io.github.kakaocup.kakao.common.actions.BaseActions
