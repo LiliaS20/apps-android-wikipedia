@@ -42,7 +42,6 @@ object ExploreScreen : NamedScreen<ExploreScreen>() {
             itemType(::TopReadItem)
             itemType(::InTheNewsItem)
             itemType(::FeaturedArticleItem)
-            itemType(::NavigationBar)
         }
     ).name(withParent("Список блоков на странице"))
 
@@ -52,6 +51,6 @@ object ExploreScreen : NamedScreen<ExploreScreen>() {
     }
 
     fun topReadBlock(fnc: TopReadItem.() -> Unit) {
-        items.invokeWithText("TopReadItem", fnc)
+        items.invokeWithText("Top read", fnc)
     }
 }

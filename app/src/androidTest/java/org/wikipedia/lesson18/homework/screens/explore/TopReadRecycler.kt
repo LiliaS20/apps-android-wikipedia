@@ -46,6 +46,6 @@ class TopReadRecycler(matcher: Matcher<View>) : KRecyclerItem<TopReadRecycler>(m
     val image by lazy {
         KTextView(matcher) {
             withId(R.id.view_list_card_item_image)
-        }.name(withParent("Картинки"))
+        }.name(withParent("Картинка"))
     }
 }

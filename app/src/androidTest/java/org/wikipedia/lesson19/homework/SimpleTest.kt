@@ -35,10 +35,11 @@ class SimpleTest : BaseTest() {
     fun testChangeSettings() {
         run("Проверяет изменение настроек") {
             action.click(OnboardingScreen.skipButton)
-            ExploreScreen.topReadBlock {
-                item(2) {
-                    verify.isDisplayed(image)
-                }
+            action.click(MainButtonScreen.buttonMore)
+            action.click(MainButtonScreen.buttonSettings)
+            SettingsScreen.settingsItem("Show link previews") {
+                action.setChecked(false, showLinkPreviews)
+                verify.isNotChecked(showLinkPreviews)
             }
         }
     }
