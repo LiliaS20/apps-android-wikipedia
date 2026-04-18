@@ -42,6 +42,13 @@ class Verify(private val steps: StepDefinitions) : StepsDsl<Verify>() {
         )
     }
 
+    fun isChecked(element: CheckableAssertions) {
+        steps.isChecked(
+            "Проверяет, что переключатель '${(element as BaseActions).getName()}' включен",
+            element
+        )
+    }
+
     fun isNotChecked(element: CheckableAssertions) {
         steps.isNotChecked(
             "Проверяет, что переключатель '${(element as BaseActions).getName()}' выключен",

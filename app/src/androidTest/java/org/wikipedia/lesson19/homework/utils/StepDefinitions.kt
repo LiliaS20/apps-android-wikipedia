@@ -43,6 +43,12 @@ class StepDefinitions(private val testContext: TestContext<*>) {
         }
     }
 
+    fun isChecked(step: String, element: CheckableAssertions) {
+        execute(step) {
+            element.isChecked()
+        }
+    }
+
     fun isNotChecked(step: String, element: CheckableAssertions) {
         execute(step) {
             element.isNotChecked()

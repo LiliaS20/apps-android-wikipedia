@@ -21,7 +21,7 @@ class SearchItem(matcher: Matcher<View>) : KRecyclerItem<SearchItem>(matcher) {
         }.name(withParent("Иконка поиска"))
     }
 
-    val text by lazy {
+    val searchInput by lazy {
         KTextView(matcher) {
             withText("Search Wikipedia")
             isInstanceOf(MaterialTextView::class.java)

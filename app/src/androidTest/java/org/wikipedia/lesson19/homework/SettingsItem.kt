@@ -15,4 +15,10 @@ class SettingsItem(matcher: Matcher<View>) : KRecyclerItem<SettingsItem>(matcher
             withId(R.id.switchWidget)
         }.name(withParent("Чек-бокс showLinkPreviews"))
     }
+
+    val wifi by lazy {
+        KCheckBox(matcher) {
+            withId(R.id.switchWidget)
+        }.name(withParent("Чек-бокс showLinkPreviews"))
+    }
 }
