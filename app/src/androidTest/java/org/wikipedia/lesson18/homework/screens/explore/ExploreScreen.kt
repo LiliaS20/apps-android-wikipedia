@@ -5,13 +5,12 @@ import io.github.kakaocup.kakao.recycler.KRecyclerView
 import io.github.kakaocup.kakao.text.KButton
 import io.github.kakaocup.kakao.text.KTextView
 import org.wikipedia.R
+import org.wikipedia.feed.featured.FeaturedArticleCardView
 import org.wikipedia.feed.view.FeedView
-import org.wikipedia.lesson18.homework.ext.invokeByIndex
 import org.wikipedia.lesson18.homework.ext.invokeWithText
 import org.wikipedia.lesson18.homework.ext.name
-import org.wikipedia.lesson18.homework.screens.onboarding.OnboardingScreen.pager
-import org.wikipedia.lesson18.homework.screens.onboarding.PagerItem
 import org.wikipedia.lesson18.homework.utils.NamedScreen
+import org.wikipedia.lesson21.invokeAtIndexAndClass
 
 object ExploreScreen : NamedScreen<ExploreScreen>() {
 
@@ -45,6 +44,9 @@ object ExploreScreen : NamedScreen<ExploreScreen>() {
         }
     ).name(withParent("Список блоков на странице"))
 
+    fun searchBlock(fnc: SearchItem.() -> Unit) {
+        items.invokeWithText("Search Wikipedia", fnc)
+    }
 
     fun customizeBlock(fnc: CustomizeItem.() -> Unit) {
         items.invokeWithText("Customize", fnc)
@@ -54,7 +56,14 @@ object ExploreScreen : NamedScreen<ExploreScreen>() {
         items.invokeWithText("Top read", fnc)
     }
 
-    fun searchBlock(fnc: SearchItem.() -> Unit) {
-        items.invokeWithText("Search Wikipedia", fnc)
+    fun featuredArticleBlock(index: Int, fnc: FeaturedArticleItem.() -> Unit) {
+        items.invokeAtIndexAndClass(
+            index,
+            (index + 1) * 10,
+            1,
+            FeaturedArticleCardView::class.java,
+            "$index блок Featured article",
+            fnc
+        )
     }
 }

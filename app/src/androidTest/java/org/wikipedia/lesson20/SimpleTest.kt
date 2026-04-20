@@ -32,17 +32,17 @@ class SimpleTest : BaseTest() {
     fun test() {
         run("") {
             OnboardingScreen.skipButton.multiAction()
-//            ExploreScreen.searchBlock {
-//                verify.isDisplayed(searchInput)
-//                searchInput.multiAction()
-//            }
-//            SearchScreen.searchInput {
-//                multiAction(text)
-//                equalsWithTrim(text)
-//            }
-//            repeat(2) {
-//                device.uiDevice.pressBack()
-//            }
+            ExploreScreen.searchBlock {
+                verify.isDisplayed(searchInput)
+                searchInput.multiAction()
+            }
+            SearchScreen.searchInput {
+                multiAction(text)
+                equalsWithTrim(text)
+            }
+            repeat(2) {
+                device.uiDevice.pressBack()
+            }
             MainButtonScreen {
                 action.apply {
                     click(buttonMore)
