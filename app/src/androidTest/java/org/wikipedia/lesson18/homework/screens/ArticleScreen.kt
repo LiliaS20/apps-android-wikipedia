@@ -4,6 +4,9 @@ import com.kaspersky.kaspresso.screens.KScreen
 import io.github.kakaocup.kakao.web.KWebView
 import org.wikipedia.R
 import org.wikipedia.lesson18.homework.screens.explore.ExploreScreen.withParent
+import org.wikipedia.lesson23.KWebViewList
+import org.wikipedia.lesson23.ReferencesItem
+import org.wikipedia.lesson23.withXpath
 
 object ArticleScreen : KScreen<ArticleScreen>() {
     override val layoutId: Int? = null

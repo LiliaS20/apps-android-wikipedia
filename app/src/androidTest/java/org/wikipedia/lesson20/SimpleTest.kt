@@ -8,6 +8,7 @@ import org.wikipedia.lesson19.homework.SettingsScreen
 import org.wikipedia.lesson19.homework.ext.action
 import org.wikipedia.lesson19.homework.ext.verify
 import org.wikipedia.lesson19.homework.utils.BaseTest
+import org.wikipedia.lesson20.SearchScreen.searchInput
 
 class SimpleTest : BaseTest() {
 

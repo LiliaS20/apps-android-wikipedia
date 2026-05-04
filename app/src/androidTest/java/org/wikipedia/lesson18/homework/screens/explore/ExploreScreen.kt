@@ -1,5 +1,6 @@
 package org.wikipedia.lesson18.homework.screens.explore
 
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import io.github.kakaocup.kakao.image.KImageView
 import io.github.kakaocup.kakao.recycler.KRecyclerView
 import io.github.kakaocup.kakao.text.KButton
@@ -11,6 +12,7 @@ import org.wikipedia.lesson18.homework.ext.invokeWithText
 import org.wikipedia.lesson18.homework.ext.name
 import org.wikipedia.lesson18.homework.utils.NamedScreen
 import org.wikipedia.lesson21.invokeAtIndexAndClass
+import org.wikipedia.lesson22.SearchWidget
 
 object ExploreScreen : NamedScreen<ExploreScreen>() {
 
@@ -43,6 +45,12 @@ object ExploreScreen : NamedScreen<ExploreScreen>() {
             itemType(::FeaturedArticleItem)
         }
     ).name(withParent("Список блоков на странице"))
+
+    val searchWidget by lazy {
+        SearchWidget {
+            withId(R.id.search_container)
+        }.name(withParent("Виджет поиска"))
+    }
 
     fun searchBlock(fnc: SearchItem.() -> Unit) {
         items.invokeWithText("Search Wikipedia", fnc)
