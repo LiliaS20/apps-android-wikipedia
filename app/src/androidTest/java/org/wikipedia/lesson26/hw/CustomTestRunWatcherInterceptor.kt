@@ -1,40 +1,42 @@
-package org.wikipedia.lesson26
+package org.wikipedia.lesson26.hw
 
-import android.util.Log
 import com.kaspersky.kaspresso.interceptors.watcher.testcase.TestRunWatcherInterceptor
+import com.kaspersky.kaspresso.logger.UiTestLogger
 import com.kaspersky.kaspresso.testcases.models.info.TestInfo
 
-class CustomTestRunWatcherInterceptor : TestRunWatcherInterceptor {
+class CustomTestRunWatcherInterceptor(
+    private val logger: UiTestLogger
+) : TestRunWatcherInterceptor {
 
     override fun onTestStarted(testInfo: TestInfo) {
-        Log.d("KASPRESSO", "CHECK START: TEST STARTED")
+        logger.d("KASPRESSO", "TEST STARTED")
     }
 
     override fun onBeforeSectionStarted(testInfo: TestInfo) {
-        Log.d("KASPRESSO", "CHECK START: BEFORE SECTION STARTED")
+        logger.d("KASPRESSO", "BEFORE SECTION STARTED")
     }
 
     override fun onBeforeSectionFinishedSuccess(testInfo: TestInfo) {
-        Log.d("KASPRESSO", "CHECK START: BEFORE SECTION FINISHED SUCCESS")
+        logger.d("KASPRESSO", "BEFORE SECTION FINISHED SUCCESS")
     }
 
     override fun onMainSectionStarted(testInfo: TestInfo) {
-        Log.d("KASPRESSO", "CHECK START: MAIN SECTION STARTED")
+        logger.d("KASPRESSO", "MAIN SECTION STARTED")
     }
 
     override fun onMainSectionFinishedSuccess(testInfo: TestInfo) {
-        Log.d("KASPRESSO", "CHECK START: MAIN SECTION FINISHED SUCCESS")
+        logger.d("KASPRESSO", "MAIN SECTION FINISHED SUCCESS")
     }
 
     override fun onAfterSectionStarted(testInfo: TestInfo) {
-        Log.d("KASPRESSO", "CHECK START: AFTER SECTION STARTED")
+        logger.d("KASPRESSO", "AFTER SECTION STARTED")
     }
 
     override fun onAfterSectionFinishedSuccess(testInfo: TestInfo) {
-        Log.d("KASPRESSO", "CHECK START: AFTER SECTION FINISHED SUCCESS")
+        logger.d("KASPRESSO", "AFTER SECTION FINISHED SUCCESS")
     }
 
     override fun onTestFinished(testInfo: TestInfo, success: Boolean) {
-        Log.d("KASPRESSO", "CHECK START: TEST FINISHED")
+        logger.d("KASPRESSO", "TEST FINISHED")
     }
 }

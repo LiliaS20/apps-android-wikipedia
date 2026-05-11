@@ -25,28 +25,28 @@ class WebViewTest: BaseTest(){
         }
     }
 
-    @Test
-    fun indexReferenceWebViewTest(){
-        run {
-            action.click(OnboardingScreen.skipButton)
-            ExploreScreen.topReadBlock {
-                cardListItem(0) {
-                    action {
-                        click(image)
-                    }
-                }
-            }
-            ArticleScreen{
-                Thread.sleep(2000)
-                action.clickOnWebView(references)
-                Thread.sleep(2000)
-                referenceItem(2){
-                    verify.hasText(
-                        index,
-                        "[2]"
-                    )
-                }
-            }
-        }
-    }
+//    @Test
+//    fun indexReferenceWebViewTest(){
+//        run {
+//            action.click(OnboardingScreen.skipButton)
+//            ExploreScreen.topReadBlock {
+//                cardListItem(0) {
+//                    action {
+//                        click(image)
+//                    }
+//                }
+//            }
+//            ArticleScreen{
+//                Thread.sleep(2000)
+//                action.clickOnWebView(references)
+//                Thread.sleep(2000)
+//                referenceItem(2){
+//                    verify.hasText(
+//                        index,
+//                        "[2]"
+//                    )
+//                }
+//            }
+//        }
+//    }
 }

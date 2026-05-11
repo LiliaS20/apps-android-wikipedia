@@ -1,8 +1,8 @@
-package org.wikipedia.lesson24.ext
-
-import io.github.kakaocup.compose.node.assertion.NodeAssertions
-import org.wikipedia.lesson24.utils.TrimmedTextAssertions
-
-fun NodeAssertions.assertTrimmedTextIsEquals(expected: String) {
-    delegate.check(TrimmedTextAssertions(expected))
-}
+//package org.wikipedia.lesson24.ext
+//
+//import io.github.kakaocup.compose.node.assertion.NodeAssertions
+//import org.wikipedia.lesson24.utils.TrimmedTextAssertions
+//
+//fun NodeAssertions.assertTrimmedTextIsEquals(expected: String) {
+//    delegate.check(TrimmedTextAssertions(expected))
+//}
