@@ -1,10 +1,16 @@
 package org.wikipedia.lesson26
 
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.kaspersky.kaspresso.kaspresso.Kaspresso
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
+import org.junit.Rule
+import org.junit.Test
+import org.wikipedia.lesson18.homework.screens.onboarding.OnboardingScreen
+import org.wikipedia.main.MainActivity
 
-abstract class BaseUiTest : TestCase(
-    kaspressoBuilder = Kaspresso.Builder.simple().apply {
+
+class SimpleTest : TestCase(
+    kaspressoBuilder = Kaspresso.Builder.advanced().apply {
         viewBehaviorInterceptors.add(LogBeforeAfterInterceptor())
         // viewBehaviorInterceptors.add(BrokenInterceptor()) // только для задания 2
 
@@ -13,4 +19,14 @@ abstract class BaseUiTest : TestCase(
 
         viewBehaviorInterceptors.add(ActionTimeInterceptor())
     }
-)
+) {
+    @get:Rule
+    val testRule = ActivityScenarioRule(MainActivity::class.java)
+
+    @Test
+    fun simpleTest() {
+        run() {
+            OnboardingScreen.continueButton.click()
+        }
+    }
+}

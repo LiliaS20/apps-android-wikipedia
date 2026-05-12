@@ -10,7 +10,7 @@ import org.wikipedia.lesson18.homework.screens.onboarding.OnboardingScreen
 import org.wikipedia.main.MainActivity
 
 class RunWatcherInterceptorTest : TestCase(
-    kaspressoBuilder = Kaspresso.Builder.simple().apply {
+    kaspressoBuilder = Kaspresso.Builder.advanced().apply {
         testRunWatcherInterceptors.add(CustomTestRunWatcherInterceptor(testLogger))
     }
 ) {
